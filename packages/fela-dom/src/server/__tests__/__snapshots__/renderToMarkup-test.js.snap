@@ -47,3 +47,56 @@ exports[`Rendering to HTML markup should return a single HTML markup string 1`] 
     }
 </style>"
 `;
+
+exports[`Rendering to HTML markup should return a single HTML markup string 2`] = `
+"<style type=\\"text/css\\" data-fela-rehydration=\\"12\\" data-fela-type=\\"RULE\\">
+    .a {
+        color: yellow
+    }
+
+    .i {
+        color: grey
+    }
+
+    .j:hover {
+        color: black
+    }
+
+    .b:hover {
+        color: blue
+    }
+
+    .c:focus-within {
+        color: blue
+    }
+
+    .k:focus-within {
+        color: brown
+    }
+
+    .d:active {
+        color: red
+    }
+
+    .l:active {
+        color: white
+    }
+</style>
+<style type=\\"text/css\\" data-fela-rehydration=\\"12\\" data-fela-type=\\"RULE\\" media=\\"(min-width: 300px)\\">
+    .e {
+        color: darkgrey
+    }
+
+    .g:hover {
+        color: red
+    }
+
+    .h:focus-within {
+        color: purple
+    }
+
+    .f:active {
+        color: blue
+    }
+</style>"
+`;

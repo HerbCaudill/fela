@@ -48,11 +48,20 @@ export default function createRenderer(
     listeners: [],
     keyframePrefixes: config.keyframePrefixes || ['-webkit-', '-moz-'],
     plugins: config.plugins || [],
+    selectorPrefix: config.selectorPrefix || '',
+    filterClassName: config.filterClassName || isSafeClassName,
+
+    // ordering setttings
     mediaQueryOrder: config.mediaQueryOrder || [],
     supportQueryOrder: config.supportQueryOrder || [],
-    selectorPrefix: config.selectorPrefix || '',
-
-    filterClassName: config.filterClassName || isSafeClassName,
+    ruleOrder: [
+      /^:link/,
+      /^:visited/,
+      /^:hover/,
+      /^:focus-within/,
+      /^:focus/,
+      /^:active/,
+    ],
 
     uniqueRuleIdentifier: 0,
     uniqueKeyframeIdentifier: 0,
@@ -274,6 +283,7 @@ export default function createRenderer(
               className,
               selector,
               declaration,
+              pseudo,
               media,
               support,
             }

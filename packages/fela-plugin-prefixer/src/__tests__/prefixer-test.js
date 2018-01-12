@@ -8,8 +8,8 @@ describe('Prefixer plugin', () => {
     }
 
     expect(prefixer()(style)).toEqual({
-      justifyContent:
-        'center;-webkit-box-pack:center;-webkit-justify-content:center',
+      WebkitJustifyContent:
+        'center;justify-content:center;-webkit-box-pack:center',
       display: [
         '-webkit-box',
         '-moz-box',
@@ -30,8 +30,8 @@ describe('Prefixer plugin', () => {
 
     expect(prefixer()(style)).toEqual({
       ':hover': {
-        justifyContent:
-          'center;-webkit-box-pack:center;-webkit-justify-content:center',
+        WebkitJustifyContent:
+          'center;justify-content:center;-webkit-box-pack:center',
       },
       display: [
         '-webkit-box',

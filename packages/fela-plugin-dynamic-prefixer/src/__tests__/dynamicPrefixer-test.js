@@ -17,7 +17,7 @@ describe('Dynamic Prefixer plugin', () => {
       })(style)
     ).toEqual({
       transition: '200ms all linear',
-      WebkitUserSelect: 'none',
+      userSelect: 'none',
       boxSizing: 'border-box',
       display: '-webkit-flex',
       color: 'blue',

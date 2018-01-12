@@ -38,4 +38,51 @@ describe('Rendering to HTML markup', () => {
 
     expect(beautify(renderToMarkup(renderer))).toMatchSnapshot()
   })
+
+  it('should return a single HTML markup string', () => {
+    const rule = () => ({
+      color: 'yellow',
+      ':hover': {
+        color: 'blue',
+      },
+      ':focus-within': {
+        color: 'blue',
+      },
+      ':active': {
+        color: 'red',
+      },
+      '@media (min-width: 300px)': {
+        color: 'darkgrey',
+        ':active': {
+          color: 'blue',
+        },
+        ':hover': {
+          color: 'red',
+        },
+        ':focus-within': {
+          color: 'purple',
+        },
+      },
+    })
+
+    const rule2 = () => ({
+      color: 'grey',
+      ':hover': {
+        color: 'black',
+      },
+      ':focus-within': {
+        color: 'brown',
+      },
+      ':active': {
+        color: 'white',
+      },
+    })
+
+    const renderer = createRenderer()
+
+    renderer.renderRule(rule)
+    renderer.renderRule(rule2)
+
+    expect(beautify(renderToMarkup(renderer))).toMatchSnapshot()
+  })
 })
