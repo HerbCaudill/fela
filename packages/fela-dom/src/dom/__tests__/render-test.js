@@ -38,6 +38,37 @@ describe('render', () => {
     ).toMatchSnapshot()
   })
 
+  it('should correctly sort rules', () => {
+    process.env.NODE_ENV = 'production'
+
+    const renderer = createRenderer()
+    render(renderer)
+
+    renderer.renderRule(() => ({
+      color: 'blue',
+      ':focus-within': {
+        color: 'black',
+      },
+      ':hover': {
+        color: 'red',
+      },
+      ':active': {
+        color: 'yellow',
+      },
+    }))
+
+    renderer.renderRule(() => ({
+      color: 'red',
+      ':hover': {
+        color: 'blue',
+      },
+    }))
+
+    process.env.NODE_ENV = 'development'
+
+    expect(document.styleSheets[0].cssRules).toMatchSnapshot()
+  })
+
   it('should not render multiple times', () => {
     const renderer = createRenderer()
 
